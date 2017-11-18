@@ -91,7 +91,15 @@ for i in range(0,x):
     print("\n",file=text_file)
 print(";",file=text_file)
 
-
+results3 = pd.read_csv("costo-fabrica-deposito.txt",header=None, delimiter="\n") 
+results3 = np.array(results3) 
+x,y = results3.shape 
+ 
+matriz = [] 
+ 
+for i in range(0,x): 
+    matriz.append(results3[i][0].split(",")) 
+ 
 
 #print("param cDC := ",end="",file=text_file)
 #for i in range(0,x):
