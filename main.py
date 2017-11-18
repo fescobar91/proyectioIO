@@ -2,7 +2,7 @@ import numpy as np
 import csv
 import pandas as pd
 
-text_file = open("wea.txt","w")
+text_file = open("datos.txt","w")
 results = []
 with open('primeros-parametros.txt') as inputfile:
     for line in inputfile:
