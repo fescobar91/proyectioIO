@@ -108,10 +108,18 @@ for i in range(0,50):
 print(":=",file=text_file)
 for i in range(0,x):
     print("%d" % (i+1),end="\t",file=text_file)
-    for j in range(0,100):
-        print("%s" % matriz[i][j], end="\t",file=text_file)
-    print("\n",file=text_file)
-print(";",file=text_file)
+    if(i!=(x-1)):
+        for j in range(0,100):
+            print("%s" % matriz[i][j], end="\t",file=text_file)
+        print("\n",end="",file=text_file)
+    else:
+        for j in range(0,100):
+            if(j!=99):
+                print("%s" % matriz[i][j], end="\t",file=text_file)
+            else:
+                print("%s" % matriz[i][j], end="",file=text_file)
+                print(";",end="",file=text_file)  
+
 
 
 
