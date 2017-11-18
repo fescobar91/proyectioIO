@@ -1,0 +1,3 @@
+model CFLP.mod;
+data datos.dat;
+solve;

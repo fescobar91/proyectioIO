@@ -109,7 +109,7 @@ for i in range(0,x):
  
 
 print("param cFD : ",end="",file=text_file)
-for i in range(0,50):
+for i in range(0,100):
     print("%d" % (i+1),end="\t",file=text_file)
 print(":=",file=text_file)
 for i in range(0,x):
