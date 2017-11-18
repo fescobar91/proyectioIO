@@ -85,10 +85,18 @@ for i in range(0,100):
 print(":=",file=text_file)
 for i in range(0,x):
     print("%d" % (i+1),end="\t",file=text_file)
-    for j in range(0,200):
-        print("%s" % matriz[i][j], end="\t",file=text_file)
-    print("\n",file=text_file)
-print(";",file=text_file)
+    if(i!=(x-1)):
+        for j in range(0,200):
+            print("%s" % matriz[i][j], end="\t",file=text_file)
+        print("\n",end="\n",file=text_file)
+    else:
+        for j in range(0,200):
+            if(j!=199):
+                print("%s" % matriz[i][j], end="\t",file=text_file)
+            else:
+                print("%s" % matriz[i][j], end="",file=text_file)
+                print(";",end="\n",file=text_file)
+
 
 results3 = pd.read_csv("costo-fabrica-deposito.txt",header=None, delimiter="\n") 
 results3 = np.array(results3) 
@@ -116,7 +124,7 @@ for i in range(0,x):
                 print("%s" % matriz[i][j], end="\t",file=text_file)
             else:
                 print("%s" % matriz[i][j], end="",file=text_file)
-                print(";",end="",file=text_file)  
+                print(";",end="\n",file=text_file)  
 
 
 
