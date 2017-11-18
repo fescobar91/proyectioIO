@@ -81,8 +81,7 @@ for i in range(0,x):
 
 print("param cDC : ",end="",file=text_file)
 for i in range(0,100):
-    if(i!=x-1):
-        print("%d" % (i+1),end="\t",file=text_file)
+    print("%d" % (i+1),end="\t",file=text_file)
 print(":=",file=text_file)
 for i in range(0,x):
     print("%d" % (i+1),end="\t",file=text_file)
@@ -103,8 +102,7 @@ for i in range(0,x):
 
 print("param cFD : ",end="",file=text_file)
 for i in range(0,50):
-    if(i!=x-1):
-        print("%d" % (i+1),end="\t",file=text_file)
+    print("%d" % (i+1),end="\t",file=text_file)
 print(":=",file=text_file)
 for i in range(0,x):
     print("%d" % (i+1),end="\t",file=text_file)
