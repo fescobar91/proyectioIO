@@ -101,13 +101,18 @@ for i in range(0,x):
     matriz.append(results3[i][0].split(",")) 
  
 
-#print("param cDC := ",end="",file=text_file)
-#for i in range(0,x):
-#    for j in range(0,y):
-#        if(i!=x-1):
-#            print("%d %s" % (i+1,results3[i][j]),end="\t",file=text_file)
-#        else:
-#            print("%d %s" % (i+1,results3[i][j]),end="",file=text_file)
-#print(";",file=text_file)
+print("param cFD : ",end="",file=text_file)
+for i in range(0,50):
+    if(i!=x-1):
+        print("%d" % (i+1),end="\t",file=text_file)
+print(":=",file=text_file)
+for i in range(0,x):
+    print("%d" % (i+1),end="\t",file=text_file)
+    for j in range(0,100):
+        print("%s" % matriz[i][j], end="\t",file=text_file)
+    print("\n",file=text_file)
+print(";",file=text_file)
+
+
 
 
