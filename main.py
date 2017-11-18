@@ -69,9 +69,15 @@ for i in range(0,x):
 print(";",file=text_file)
 
 results3 = pd.read_csv("costo-deposito-cliente.txt",header=None, delimiter="\n")
-x,y = results3.shape
 results3 = np.array(results3)
-print(results3)
+x,y = results3.shape
+
+matriz = []
+
+for i in range(0,x):
+    matriz.append(results3[i][0].split(","))
+
+print(matriz[0][0]) 
 
 
 #print("param cDC := ",end="",file=text_file)
