@@ -2,13 +2,15 @@ import numpy as np
 import csv
 import pandas as pd
 
-text_file = open("datos.txt","w")
+text_file = open("datos.dat","w")
 results = []
 with open('primeros-parametros.txt') as inputfile:
     for line in inputfile:
         results.append(line.strip().split(' '))
+for i in range(0,len(results[0])):
+    results[0][i] = int(results[0][i])
 
-print("param fab := 50;\nparam dep := 100;\nparam cli := 200;",file=text_file)
+print("param fab := %d;\nparam dep := %d;\nparam cli := %d;" %(results[0][0],results[0][1],results[0][2]),file=text_file)
 
 results2 = []
 with open("demandas.txt", "r") as ins:
@@ -71,7 +73,7 @@ print(";",file=text_file)
 results3 = pd.read_csv("costo-deposito-cliente.txt",header=None, delimiter="\n")
 results3 = np.array(results3)
 x,y = results3.shape
-
+print(x)
 matriz = []
 
 for i in range(0,x):
@@ -80,18 +82,18 @@ for i in range(0,x):
 
 
 print("param cDC : ",end="",file=text_file)
-for i in range(0,100):
+for i in range(0,results[0][2]):
     print("%d" % (i+1),end="\t",file=text_file)
 print(":=",file=text_file)
 for i in range(0,x):
     print("%d" % (i+1),end="\t",file=text_file)
     if(i!=(x-1)):
-        for j in range(0,200):
+        for j in range(0,results[0][2]):
             print("%s" % matriz[i][j], end="\t",file=text_file)
         print("\n",end="\n",file=text_file)
     else:
-        for j in range(0,200):
-            if(j!=199):
+        for j in range(0,results[0][2]):
+            if(j!=results[0][2]-1):
                 print("%s" % matriz[i][j], end="\t",file=text_file)
             else:
                 print("%s" % matriz[i][j], end="",file=text_file)
@@ -109,18 +111,18 @@ for i in range(0,x):
  
 
 print("param cFD : ",end="",file=text_file)
-for i in range(0,100):
+for i in range(0,results[0][1]):
     print("%d" % (i+1),end="\t",file=text_file)
 print(":=",file=text_file)
 for i in range(0,x):
     print("%d" % (i+1),end="\t",file=text_file)
     if(i!=(x-1)):
-        for j in range(0,100):
+        for j in range(0,results[0][1]):
             print("%s" % matriz[i][j], end="\t",file=text_file)
         print("\n",end="",file=text_file)
     else:
-        for j in range(0,100):
-            if(j!=99):
+        for j in range(0,results[0][1]):
+            if(j!=results[0][1]-1):
                 print("%s" % matriz[i][j], end="\t",file=text_file)
             else:
                 print("%s" % matriz[i][j], end="",file=text_file)
